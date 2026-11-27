@@ -1,0 +1,125 @@
+# =====================================================================
+#  Rithika's profile content
+#  Edit this file to update the website. See README.md for help.
+#  - Keep the indentation (spaces, not tabs) exactly like the examples.
+#  - Anything after a # is a note and does not show on the site.
+#  - Leave a field out (or empty) and it simply won't be shown.
+# =====================================================================
+
+name: Rithika Rali
+headline: 11th Grade Student · Panther Creek High School · Morrisville, NC
+about: >
+  I'm a high school junior with interests that span biotechnology research,
+  law, design, and the performing arts. I've published independent research
+  on bio-enzymes, co-founded my school's Mock Trial club, competed as a TSA
+  finalist in Fashion Technology and Design, and have more than ten years of
+  competitive dance. I also tutor younger students in science and math.
+
+# Contact links. Fill in any you want shown; leave others empty.
+contact:
+  email: ""          # e.g. "rithika@example.com"
+  linkedin: ""       # e.g. "https://www.linkedin.com/in/your-name"
+  github: "https://github.com/rithikarali"
+
+# Short tags shown near the top of the page.
+skills:
+  - Scientific research & writing
+  - Laboratory procedures (biotech)
+  - Leadership & club organization
+  - Case analysis & mock trials
+  - Fashion technology & design
+  - Tutoring in science and math
+  - Dance & performance
+  - Piano
+
+# ---------------------------------------------------------------------
+#  Sections. Each section has a title and a list of items.
+#  To add an experience, copy an item (from "- title:" down) and edit it.
+#  To add a whole new section, copy a section block.
+#  Item fields: title, org, role, date, description, link, link_text, tags
+# ---------------------------------------------------------------------
+sections:
+
+  - title: Research & Development
+    items:
+      - title: Bio-Enzymes Research (Passion Project)
+        role: Independent Researcher
+        description: >
+          Conducted research and hands-on experiments on bio-enzymes, and
+          published the resulting paper with NextGen Scholar.
+        link: https://www.nextgenscholar.net/article-bio-enzymes.html
+        link_text: Read the published paper
+        tags: [Research, Biotechnology, Publication]
+
+      - title: Biotech Program
+        org: NC State University
+        role: Participant
+        description: >
+          Learned about the biotechnology industry and practiced laboratory
+          procedures in NC State's biotech program.
+        tags: [Biotechnology, Lab Skills]
+
+  - title: Leadership & Activities
+    items:
+      - title: Mock Trial Club
+        org: Panther Creek High School
+        role: Co-Founder & Secretary
+        description: >
+          Co-founded a club that reviews trial cases and runs mock trials,
+          recruiting student actors for each courtroom role and conducting
+          the trials.
+        tags: [Leadership, Law, Public Speaking]
+
+      - title: Technology Student Association (TSA)
+        role: Finalist, Fashion Technology and Design
+        description: >
+          Reached the finals in the Fashion Technology and Design event.
+        tags: [Design, Competition]
+
+      - title: National Honor Society (NHS)
+        role: Member
+        description: >
+          Volunteered in the healthcare industry as part of NHS service.
+        tags: [Service, Healthcare]
+
+  - title: Volunteering
+    items:
+      - title: Science & Math Tutor
+        role: Volunteer Tutor
+        description: >
+          Tutor elementary and middle school students in my local community
+          in science and math.
+        tags: [Teaching, STEM, Community]
+
+  - title: Dance & Athletics
+    items:
+      - title: Dance
+        role: 10+ years of training and competition
+        description: >
+          Won 1st place with VPAC at the National StarQuest competition in
+          2026, and have received multiple prizes at StarQuest competitions
+          over the last five years.
+        tags: [Dance, Performance, Awards]
+
+      - title: Gymnastics
+        role: Competitive gymnast
+        tags: [Athletics]
+
+      - title: Basketball & Tennis
+        tags: [Athletics]
+
+  - title: Music
+    items:
+      - title: Piano
+        role: Pianist
+        description: >
+          Play piano partly to build manual dexterity, and have performed in
+          10 recitals over the last five years.
+        tags: [Music, Performance]
+
+# Optional: awards list shown as a quick summary. Add new ones at the top.
+awards:
+  - 1st Place, National StarQuest Dance Competition (with VPAC), 2026
+  - Multiple prizes, StarQuest Dance Competitions (last 5 years)
+  - Finalist, TSA Fashion Technology and Design
+  - Published paper on bio-enzymes, NextGen Scholar

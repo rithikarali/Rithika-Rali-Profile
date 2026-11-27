@@ -1,0 +1,7 @@
+# Site settings. Most content lives in _data/profile.yml, not here.
+title: Rithika Rali
+description: Student at Panther Creek High School, Morrisville, NC. Research, leadership, dance, and service.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
