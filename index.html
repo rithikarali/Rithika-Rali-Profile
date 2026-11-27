@@ -9,57 +9,95 @@ layout: null
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ p.name }}</title>
   <meta name="description" content="{{ site.description }}">
+  <meta property="og:title" content="{{ p.name }}">
+  <meta property="og:description" content="{{ p.headline }}">
+  {%- if p.photo %}<meta property="og:image" content="{{ p.photo | absolute_url }}">{% endif %}
+  <meta name="theme-color" content="#5b2a55">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Hello, I'm</p>
-      <h1>{{ p.name }}</h1>
-      <p class="headline">{{ p.headline }}</p>
-      <nav class="links">
-        {%- if p.contact.email and p.contact.email != "" %}<a href="mailto:{{ p.contact.email }}">Email</a>{% endif -%}
-        {%- if p.contact.linkedin and p.contact.linkedin != "" %}<a href="{{ p.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif -%}
-        {%- if p.contact.github and p.contact.github != "" %}<a href="{{ p.contact.github }}" target="_blank" rel="noopener">GitHub</a>{% endif -%}
-      </nav>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="topnav" aria-label="Sections">
+    <div class="wrap topnav-inner">
+      <a class="brand" href="#top">{{ p.name }}</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        {%- for sec in p.sections %}
+        <li><a href="#{{ sec.title | slugify }}">{{ sec.title | split: " " | first }}</a></li>
+        {%- endfor %}
+      </ul>
     </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      {%- if p.photo %}
+      <div class="portrait reveal">
+        <div class="ring" aria-hidden="true"></div>
+        <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name }}" width="640" height="640">
+      </div>
+      {%- endif %}
+      <div class="intro">
+        <p class="eyebrow reveal">Hello, I'm</p>
+        <h1 class="reveal">{{ p.name }}</h1>
+        <p class="headline reveal">
+          {% include icon.html name="cap" px=18 %}<span>{{ p.headline }}</span>
+        </p>
+        <div class="links reveal">
+          {%- if p.contact.email and p.contact.email != "" %}<a class="btn" href="mailto:{{ p.contact.email }}">{% include icon.html name="mail" px=18 %}<span>Email</span></a>{% endif -%}
+          {%- if p.contact.linkedin and p.contact.linkedin != "" %}<a class="btn" href="{{ p.contact.linkedin }}" target="_blank" rel="noopener">{% include icon.html name="linkedin" px=18 %}<span>LinkedIn</span></a>{% endif -%}
+          {%- if p.contact.github and p.contact.github != "" %}<a class="btn" href="{{ p.contact.github }}" target="_blank" rel="noopener">{% include icon.html name="github" px=18 %}<span>GitHub</span></a>{% endif -%}
+        </div>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#about" aria-label="Scroll to About">{% include icon.html name="chevron-down" px=22 %}</a>
   </header>
 
-  <main class="wrap">
-    {%- if p.about %}
-    <section class="about">
-      <h2>About</h2>
-      <p>{{ p.about }}</p>
-    </section>
-    {%- endif %}
+  <main id="main" class="wrap">
+    <section id="about" class="block">
+      <h2 class="reveal"><span class="h-icon">{% include icon.html name="sparkles" %}</span>About</h2>
+      {%- if p.about %}<p class="lead reveal">{{ p.about }}</p>{% endif %}
 
-    {%- if p.skills %}
-    <section>
-      <h2>Skills</h2>
+      {%- if p.stats %}
+      <ul class="stats">
+        {%- for s in p.stats %}
+        <li class="stat reveal" style="--i: {{ forloop.index0 }}">
+          <span class="num"><span class="count" data-to="{{ s.value }}">{{ s.value }}</span>{{ s.suffix }}</span>
+          <span class="label">{{ s.label }}</span>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+
+      {%- if p.skills %}
+      <h3 class="sub reveal">Skills</h3>
       <ul class="chips">
-        {%- for s in p.skills %}<li>{{ s }}</li>{% endfor %}
+        {%- for s in p.skills %}<li class="reveal" style="--i: {{ forloop.index0 }}">{{ s }}</li>{% endfor %}
       </ul>
-    </section>
-    {%- endif %}
+      {%- endif %}
 
-    {%- if p.awards %}
-    <section>
-      <h2>Highlights &amp; Awards</h2>
+      {%- if p.awards %}
+      <h3 class="sub reveal">Highlights &amp; Awards</h3>
       <ul class="awards">
-        {%- for a in p.awards %}<li>{{ a }}</li>{% endfor %}
+        {%- for a in p.awards %}<li class="reveal" style="--i: {{ forloop.index0 }}">{% include icon.html name="award" px=20 class="a-icon" %}<span>{{ a }}</span></li>{% endfor %}
       </ul>
+      {%- endif %}
     </section>
-    {%- endif %}
 
     {%- for sec in p.sections %}
-    <section>
-      <h2>{{ sec.title }}</h2>
+    <section id="{{ sec.title | slugify }}" class="block">
+      <h2 class="reveal"><span class="h-icon">{% include icon.html name=sec.icon %}</span>{{ sec.title }}</h2>
       <div class="cards">
         {%- for it in sec.items %}
-        <article class="card">
+        <article class="card reveal" style="--i: {{ forloop.index0 }}">
           <div class="card-head">
             <h3>{{ it.title }}</h3>
             {%- if it.date %}<span class="date">{{ it.date }}</span>{% endif %}
@@ -68,7 +106,7 @@ layout: null
           <p class="meta">{{ it.role }}{% if it.role and it.org %} · {% endif %}{{ it.org }}</p>
           {%- endif %}
           {%- if it.description %}<p>{{ it.description }}</p>{% endif %}
-          {%- if it.link %}<p><a class="more" href="{{ it.link }}" target="_blank" rel="noopener">{{ it.link_text | default: "Learn more" }} →</a></p>{% endif %}
+          {%- if it.link %}<p><a class="more" href="{{ it.link }}" target="_blank" rel="noopener"><span>{{ it.link_text | default: "Learn more" }}</span>{% include icon.html name="arrow-right" px=16 %}</a></p>{% endif %}
           {%- if it.tags %}
           <ul class="tags">{% for t in it.tags %}<li>{{ t }}</li>{% endfor %}</ul>
           {%- endif %}
@@ -80,7 +118,10 @@ layout: null
   </main>
 
   <footer class="wrap">
-    <p>© {{ site.time | date: "%Y" }} {{ p.name }}</p>
+    <p>{% include icon.html name="pin" px=16 %} Morrisville, NC · © {{ site.time | date: "%Y" }} {{ p.name }}</p>
   </footer>
+
+  <a class="to-top" href="#top" aria-label="Back to top">{% include icon.html name="arrow-up" px=20 %}</a>
+  <script src="{{ '/assets/main.js' | relative_url }}" defer></script>
 </body>
 </html>
