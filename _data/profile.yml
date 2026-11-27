@@ -7,6 +7,9 @@
 # =====================================================================
 
 name: Rithika Rali
+# Profile photo. To change it, upload a new square photo to assets/img/
+# and put its file name here.
+photo: assets/img/rithika.jpg
 headline: 11th Grade Student · Panther Creek High School · Morrisville, NC
 about: >
   I'm a high school junior with interests that span biotechnology research,
@@ -20,6 +23,20 @@ contact:
   email: ""          # e.g. "rithika@example.com"
   linkedin: ""       # e.g. "https://www.linkedin.com/in/your-name"
   github: "https://github.com/rithikarali"
+
+# Big numbers shown under the intro. "value" must be a number;
+# "suffix" is optional (like + or st).
+stats:
+  - value: 10
+    suffix: "+"
+    label: Years of dance
+  - value: 10
+    label: Piano recitals
+  - value: 1
+    suffix: st
+    label: Place, National StarQuest 2026
+  - value: 1
+    label: Published research paper
 
 # Short tags shown near the top of the page.
 skills:
@@ -37,10 +54,13 @@ skills:
 #  To add an experience, copy an item (from "- title:" down) and edit it.
 #  To add a whole new section, copy a section block.
 #  Item fields: title, org, role, date, description, link, link_text, tags
+#  Section icon choices: flask, users, heart, star, music, book,
+#  briefcase, globe, award, sparkles
 # ---------------------------------------------------------------------
 sections:
 
   - title: Research & Development
+    icon: flask
     items:
       - title: Bio-Enzymes Research (Passion Project)
         role: Independent Researcher
@@ -60,6 +80,7 @@ sections:
         tags: [Biotechnology, Lab Skills]
 
   - title: Leadership & Activities
+    icon: users
     items:
       - title: Mock Trial Club
         org: Panther Creek High School
@@ -83,6 +104,7 @@ sections:
         tags: [Service, Healthcare]
 
   - title: Volunteering
+    icon: heart
     items:
       - title: Science & Math Tutor
         role: Volunteer Tutor
@@ -92,6 +114,7 @@ sections:
         tags: [Teaching, STEM, Community]
 
   - title: Dance & Athletics
+    icon: star
     items:
       - title: Dance
         role: 10+ years of training and competition
@@ -109,6 +132,7 @@ sections:
         tags: [Athletics]
 
   - title: Music
+    icon: music
     items:
       - title: Piano
         role: Pianist
